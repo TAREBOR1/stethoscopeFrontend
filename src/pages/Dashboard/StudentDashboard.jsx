@@ -100,62 +100,59 @@ const StudentDashboard = () => {
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBkPSJNNDY0IDMyMEg0OEMyMS41IDMyMCAwIDI5OC41IDAgMjcyVjE0NGMwLTI2LjUgMjEuNS00OCA0OC00OGg0MTZjMjYuNSAwIDQ4IDIxLjUgNDggNDh2MTI4YzAgMjYuNS0yMS41IDQ4LTQ4IDQ4ek0yNTYgMjg4YzE3LjcgMCAzMi0xNC4zIDMyLTMydi0zMmMwLTE3LjctMTQuMy0zMi0zMi0zMnMtMzIgMTQuMy0zMiAzMnYzMmMwIDE3LjcgMTQuMyAzMiAzMiAzMnoiIGZpbGw9IiA3ZTVhZmYiLz48L3N2Zz4=')] bg-repeat bg-center"></div>
       </div>
 
-   {/* Hero Header */}
+  {/* Hero Header */}
 <motion.div 
   initial={{ opacity: 0 }}
   animate={{ opacity: 1 }}
   className="relative text-white shadow-lg overflow-hidden"
-  style={{ fontFamily: "Georgia, serif" }}
+  style={{ fontFamily: "Georgia, serif", height: "31vh" }} // At least 1/5 screen height
 >
   {/* Background Image */}
   <div className="absolute inset-0">
     <img
       src="http://res.cloudinary.com/dkg6vgwit/image/upload/v1756016308/kuire1445tmemhobbpnw.jpg"
       alt="Contest Banner"
-      className="w-full h-full object-cover" // removed opacity-30
+      className="w-full h-full object-cover"
     />
-    {/* subtle dark fade for readability */}
     <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-transparent"></div>
   </div>
 
-  <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8 relative z-10">
-    <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-      {/* Left Section */}
-      <div className="text-center md:text-left">
-        <motion.h1 
-          initial={{ y: -20 }}
-          animate={{ y: 0 }}
-          className="text-4xl md:text-5xl font-bold mb-4 flex items-center justify-center md:justify-start"
-        >
-          <Stethoscope className="w-10 h-10 mr-3 stroke-[1.5]" />
-          Face of Stethoscope Contest 2025
-        </motion.h1>
-        <p className="text-lg md:text-xl text-gray-100 max-w-2xl">
-          Two winners. One Stage. Endless Glory.
-        </p>
-      </div>
 
-      {/* Right Section (Countdown Card) */}
-      <motion.div 
-        initial={{ scale: 0.9 }}
-        animate={{ scale: 1 }}
-        className="bg-black/50 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-lg"
-      >
-        <div className="flex items-center">
-          <Clock className="w-8 h-8 mr-3 text-white stroke-[1.5]" />
-          <div>
-            <p className="text-sm text-gray-200">
-              Election {timeLeft > 0 ? 'ends in' : 'ended'}
-            </p>
-            <p className="text-2xl font-bold">
-              {timeLeft > 0 ? formatTime(timeLeft) : 'Voting closed'}
-            </p>
-          </div>
-        </div>
-      </motion.div>
-    </div>
-  </div>
 </motion.div>
+
+{/* Marquee Section */}
+<div className="relative bg-black text-white overflow-hidden border-y-2 border-purple-600 shadow-lg">
+  <div className="animate-marquee whitespace-nowrap flex items-center gap-16 text-xl font-extrabold tracking-wide uppercase">
+    <span className="flex items-center gap-2">
+      <Stethoscope className="w-6 h-6 text-purple-400" />
+      Face of Stethoscope 2025
+    </span>
+    <span className="text-yellow-400 drop-shadow-[0_0_6px_rgba(255,255,0,0.8)]">
+      ✨ Two winners. One Stage. Endless Glory. ✨
+    </span>
+    <span className="flex items-center gap-2 text-green-400 drop-shadow-[0_0_6px_rgba(0,255,0,0.8)]">
+      <Clock className="w-5 h-5" />
+      {timeLeft > 0 ? `Election ends in ${formatTime(timeLeft)}` : "Voting closed"}
+    </span>
+  </div>
+</div>
+
+{/* Custom animation for ticker */}
+<style>
+{`
+  @keyframes ticker {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+  .animate-marquee {
+    display: inline-flex;
+    min-width: 100%;
+    animation: ticker 15s linear infinite;
+  }
+`}
+</style>
+
+
 
 
       {/* Main Content */}
