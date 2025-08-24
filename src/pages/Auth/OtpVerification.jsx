@@ -42,9 +42,10 @@ const OtpVerification = () => {
     <div className="relative min-h-screen flex items-center justify-center bg-black">
       {/* Background Image */}
       <img
-        src="http://res.cloudinary.com/dkg6vgwit/image/upload/v1755033449/wez1xcu183xr62vztxuq.jpg"
+       src="http://res.cloudinary.com/dkg6vgwit/image/upload/v1756016308/kuire1445tmemhobbpnw.jpg"
         alt="Verification Background"
         className="absolute inset-0 w-full h-full object-cover"
+        loading='lazy'
       />
 
       {/* Dark overlay for readability */}

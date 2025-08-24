@@ -123,6 +123,20 @@ const StudentDashboard = () => {
 {/* Marquee Section */}
 <div className="relative bg-black text-white overflow-hidden border-y-2 border-purple-600 shadow-lg">
   <div className="animate-marquee whitespace-nowrap flex items-center gap-16 text-xl font-extrabold tracking-wide uppercase">
+    {/* Copy 1 */}
+    <span className="flex items-center gap-2">
+      <Stethoscope className="w-6 h-6 text-purple-400" />
+      Face of Stethoscope 2025
+    </span>
+    <span className="text-yellow-400 drop-shadow-[0_0_6px_rgba(255,255,0,0.8)]">
+      ✨ Two winners. One Stage. Endless Glory. ✨
+    </span>
+    <span className="flex items-center gap-2 text-green-400 drop-shadow-[0_0_6px_rgba(0,255,0,0.8)]">
+      <Clock className="w-5 h-5" />
+      {timeLeft > 0 ? `Election ends in ${formatTime(timeLeft)}` : "Voting closed"}
+    </span>
+
+    {/* Copy 2 (duplicate for seamless loop) */}
     <span className="flex items-center gap-2">
       <Stethoscope className="w-6 h-6 text-purple-400" />
       Face of Stethoscope 2025
@@ -137,20 +151,20 @@ const StudentDashboard = () => {
   </div>
 </div>
 
-{/* Custom animation for ticker */}
 <style>
 {`
   @keyframes ticker {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* only shift half since we duplicated */
   }
   .animate-marquee {
     display: inline-flex;
-    min-width: 100%;
-    animation: ticker 15s linear infinite;
+    width: max-content;
+    animation: ticker 13s linear infinite;
   }
 `}
 </style>
+
 
 
 
