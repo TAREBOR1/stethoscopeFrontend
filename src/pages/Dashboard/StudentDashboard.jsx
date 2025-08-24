@@ -20,7 +20,7 @@ import {
   ShieldCheck
 } from 'lucide-react';
 
-const ELECTION_END_TIME = new Date('2025-08-15T22:01:00');
+const ELECTION_END_TIME = new Date('2025-08-25T22:01:00');
 
 const StudentDashboard = () => {
   const dispatch = useDispatch();
@@ -100,48 +100,63 @@ const StudentDashboard = () => {
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBkPSJNNDY0IDMyMEg0OEMyMS41IDMyMCAwIDI5OC41IDAgMjcyVjE0NGMwLTI2LjUgMjEuNS00OCA0OC00OGg0MTZjMjYuNSAwIDQ4IDIxLjUgNDggNDh2MTI4YzAgMjYuNS0yMS41IDQ4LTQ4IDQ4ek0yNTYgMjg4YzE3LjcgMCAzMi0xNC4zIDMyLTMydi0zMmMwLTE3LjctMTQuMy0zMi0zMi0zMnMtMzIgMTQuMy0zMiAzMnYzMmMwIDE3LjcgMTQuMyAzMiAzMiAzMnoiIGZpbGw9IiA3ZTVhZmYiLz48L3N2Zz4=')] bg-repeat bg-center"></div>
       </div>
 
-      {/* Hero Header */}
+   {/* Hero Header */}
+<motion.div 
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  className="relative text-white shadow-lg overflow-hidden"
+  style={{ fontFamily: "Georgia, serif" }}
+>
+  {/* Background Image */}
+  <div className="absolute inset-0">
+    <img
+      src="http://res.cloudinary.com/dkg6vgwit/image/upload/v1756016308/kuire1445tmemhobbpnw.jpg"
+      alt="Contest Banner"
+      className="w-full h-full object-cover" // removed opacity-30
+    />
+    {/* subtle dark fade for readability */}
+    <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-transparent"></div>
+  </div>
+
+  <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8 relative z-10">
+    <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+      {/* Left Section */}
+      <div className="text-center md:text-left">
+        <motion.h1 
+          initial={{ y: -20 }}
+          animate={{ y: 0 }}
+          className="text-4xl md:text-5xl font-bold mb-4 flex items-center justify-center md:justify-start"
+        >
+          <Stethoscope className="w-10 h-10 mr-3 stroke-[1.5]" />
+          Face of Stethoscope Contest 2025
+        </motion.h1>
+        <p className="text-lg md:text-xl text-gray-100 max-w-2xl">
+          Two winners. One Stage. Endless Glory.
+        </p>
+      </div>
+
+      {/* Right Section (Countdown Card) */}
       <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className="relative bg-gradient-to-r from-purple-900 to-purple-700 text-white shadow-lg overflow-hidden"
+        initial={{ scale: 0.9 }}
+        animate={{ scale: 1 }}
+        className="bg-black/50 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-lg"
       >
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBkPSJNNDY0IDMyMEg0OEMyMS41IDMyMCAwIDI5OC41IDAgMjcyVjE0NGMwLTI2LjUgMjEuNS00OCA0OC00OGg0MTZjMjYuNSAwIDQ4IDIxLjUgNDggNDh2MTI4YzAgMjYuNS0yMS41IDQ4LTQ4IDQ4ek0yNTYgMjg4YzE3LjcgMCAzMi0xNC4zIDMyLTMydi0zMmMwLTE3LjctMTQuMy0zMi0zMi0zMnMtMzIgMTQuMy0zMiAzMnYzMmMwIDE3LjcgMTQuMyAzMiAzMiAzMnoiIGZpbGw9IiNmZmYiLz48L3N2Zz4=')] bg-repeat bg-center"></div>
-        </div>
-        <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-            <div className="text-center md:text-left">
-              <motion.h1 
-                initial={{ y: -20 }}
-                animate={{ y: 0 }}
-                className="text-3xl md:text-4xl font-bold mb-4 flex items-center justify-center md:justify-start"
-              >
-                <Stethoscope className="w-10 h-10 mr-3 stroke-[1.5]" />
-                Face of Stethoscope
-              </motion.h1>
-              <p className="text-lg md:text-xl text-purple-100 max-w-2xl">
-                Recognizing excellence in medical education and leadership
-              </p>
-            </div>
-            <motion.div 
-              initial={{ scale: 0.9 }}
-              animate={{ scale: 1 }}
-              className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 shadow-lg"
-            >
-              <div className="flex items-center">
-                <Clock className="w-8 h-8 mr-3 text-purple-200 stroke-[1.5]" />
-                <div>
-                  <p className="text-sm text-purple-100">Election {timeLeft > 0 ? 'ends in' : 'ended'}</p>
-                  <p className="text-xl font-bold">
-                    {timeLeft > 0 ? formatTime(timeLeft) : 'Voting closed'}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
+        <div className="flex items-center">
+          <Clock className="w-8 h-8 mr-3 text-white stroke-[1.5]" />
+          <div>
+            <p className="text-sm text-gray-200">
+              Election {timeLeft > 0 ? 'ends in' : 'ended'}
+            </p>
+            <p className="text-2xl font-bold">
+              {timeLeft > 0 ? formatTime(timeLeft) : 'Voting closed'}
+            </p>
           </div>
         </div>
       </motion.div>
+    </div>
+  </div>
+</motion.div>
+
 
       {/* Main Content */}
       <div className="relative z-10">
@@ -163,7 +178,7 @@ const StudentDashboard = () => {
                 <div className="text-center md:text-left">
                   <h2 className="text-xl font-bold text-gray-800 mb-2">Welcome, {savedUser.fullName}</h2>
                   <p className="text-gray-600">
-                    Your vote helps recognize excellence in our medical community. Review the positions below and make your selections.
+                    Your vote is your voice! Celebrate excellence and crown the next icons of UBEMSA. Explore the contestants below and make your choice
                   </p>
                 </div>
               </div>
@@ -238,12 +253,7 @@ const StudentDashboard = () => {
                             <Users className="flex-shrink-0 mr-1.5 h-4 w-4 text-gray-400 stroke-[1.5]" />
                             {relatedCandidates.length} candidate{relatedCandidates.length !== 1 ? 's' : ''}
                           </div>
-                          <div className="h-2 w-full max-w-[120px] bg-gray-200 rounded-full overflow-hidden">
-                            <div 
-                              className="h-full bg-purple-500 transition-all duration-500" 
-                              style={{ width: `${hasVoted ? 100 : Math.min(100, relatedCandidates.length * 20)}%` }}
-                            ></div>
-                          </div>
+                         
                         </div>
 
                         <Link

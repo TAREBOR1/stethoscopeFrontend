@@ -31,11 +31,13 @@ const EmailLogin = () => {
   return (
     <div className="relative min-h-screen flex items-center justify-center bg-black">
       {/* Background Image */}
-      <img
-        src="http://res.cloudinary.com/dkg6vgwit/image/upload/v1755033449/wez1xcu183xr62vztxuq.jpg"
-        alt="Login Background"
-        className="absolute inset-0 w-full h-full object-cover"
-      />
+     <img
+  src="http://res.cloudinary.com/dkg6vgwit/image/upload/v1756016308/kuire1445tmemhobbpnw.jpg"
+  alt="Login Background"
+  className="absolute inset-0 w-full h-full object-cover object-center"
+  loading='lazy'
+/>
+
       {/* Dark overlay for readability */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-purple-900/50 to-purple-800/70"></div>
 

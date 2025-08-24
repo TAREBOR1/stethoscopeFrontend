@@ -36,6 +36,34 @@ const UserManagement = () => {
     user.fullName?.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  // 🔹 Generate random Matric Number like MED1234567
+  const generateRandomMatno = () => {
+    // const randomNum = Math.floor(1000000 + Math.random() * 9000000); // 7-digit
+    return `MED0000000`;
+  };
+
+  // 🔹 Capitalize helper
+  const capitalize = (str) =>
+    str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+
+  // 🔹 When email changes, auto-fill fullname and matno if email is in correct format
+  const handleEmailChange = (value) => {
+    setEmail(value);
+
+    const regex = /^([a-zA-Z]+)\.[a-zA-Z]+@med\.uniben\.edu$/;
+    const match = value.match(regex);
+
+    if (match) {
+      setFullName(capitalize(match[1])); // Capitalize extracted name
+      if (!newMatno) {
+        setNewMatno(generateRandomMatno());
+      }
+    } else {
+      setFullName('');
+      setNewMatno('');
+    }
+  };
+
   const handleAddUser = async (e) => {
     e.preventDefault();
 
@@ -68,7 +96,7 @@ const UserManagement = () => {
       if (response?.success) {
         setAlert({
           type: 'success',
-          message: `User ${newMatno} registered successfully.`
+          message: ` ${fullName} registered successfully.`
         });
         setShowAddModal(false);
         setNewMatno('');
@@ -234,7 +262,7 @@ const UserManagement = () => {
               className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               placeholder="e.g. student@example.com"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => handleEmailChange(e.target.value)}
               required
             />
           </div>
