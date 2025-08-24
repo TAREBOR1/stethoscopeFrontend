@@ -45,9 +45,9 @@ const EmailLogin = () => {
       <div className="relative z-10 w-full max-w-md mx-auto px-6">
         <div className="bg-white/15 backdrop-blur-xl rounded-2xl shadow-lg p-8">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-white mb-2">
+            {/* <h1 className="text-3xl font-bold text-white mb-2">
               FACE OF STETHOSCOPE
-            </h1>
+            </h1> */}
           </div>
 
           <form className="space-y-6" onSubmit={handleSubmit}>
