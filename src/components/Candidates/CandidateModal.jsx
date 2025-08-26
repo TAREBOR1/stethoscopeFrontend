@@ -35,14 +35,16 @@ const CandidateModal = ({ candidate, isOpen, onClose, onVote, canVote, votedCand
         </div>
 
         {/* Manifesto Section */}
-        {candidate.manifesto && (
+
+
+        {/* {candidate.manifesto && (
           <div className="w-full bg-purple-50 rounded-lg p-4 mb-6 flex-grow overflow-hidden">
             <h4 className="text-lg font-semibold text-gray-900 mb-3">Manifesto</h4>
             <div className="bg-white p-4 rounded-md border border-gray-200 max-h-[200px] overflow-y-auto">
               <p className="text-gray-700 whitespace-pre-line">{candidate.manifesto}</p>
             </div>
           </div>
-        )}
+        )} */}
 
         {/* Action Buttons */}
         {canVote && (
