@@ -297,10 +297,7 @@ const StudentDashboard = () => {
               </div>
               <h2 className="text-2xl font-bold text-gray-800 mb-3">Voting Concluded</h2>
               <p className="text-gray-600 mb-6">The "Face of Stethoscope" election has ended. Thank you for your participation!</p>
-              <button className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200 text-sm font-medium shadow-sm flex items-center justify-center mx-auto">
-                View Election Results
-                <ScrollText className="w-4 h-4 ml-2 stroke-[2.5]" />
-              </button>
+             
             </div>
           </motion.div>
         )}
