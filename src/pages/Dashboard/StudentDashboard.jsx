@@ -20,7 +20,7 @@ import {
   ShieldCheck
 } from 'lucide-react';
 
-const ELECTION_END_TIME = new Date('2025-08-25T22:01:00');
+const ELECTION_END_TIME = new Date('2025-08-26T22:01:00');
 
 const StudentDashboard = () => {
   const dispatch = useDispatch();
